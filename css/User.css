@@ -1,0 +1,15 @@
+#resetBtn {
+    margin-right: 10px;
+}
+
+#saveBtn {
+    margin: 10px;
+}
+
+.no-quiz{
+    margin-top: 20vh;
+}
+
+.question-text {
+    margin-bottom: 24px !important;
+}

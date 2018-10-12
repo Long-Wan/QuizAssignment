@@ -1,0 +1,15 @@
+#addBtn, #saveBtn {
+    margin: 10px;
+}
+
+.answer-label {
+    margin-top: 16px;
+}
+
+.difficulty {
+    margin-top: 16px;
+}
+
+.removeRow {
+    margin-bottom: 0;
+}

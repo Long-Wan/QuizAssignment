@@ -1,0 +1,36 @@
+<html>
+   <head>
+        <title>Quiz - Admin</title>
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="css/Index.css" />
+        <link type="text/css" rel="stylesheet" href="css/Admin.css" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   </head>
+   <body>
+        <nav>
+            <div class="nav-wrapper light-blue">
+                <a href="index.html" class="brand-logo center">Quiz</a>
+                <ul id="nav-mobile" class="left">
+                    <li><a href="Admin.html">Admin</a></li>
+                    <li><a id="userPage" href="User.html">User</a></li>
+                </ul>
+            </div>
+        </nav>
+        <form id="quizForm" class="container row" onsubmit="return false">
+            <div id="questionContainer" class="col-s12"></div>
+            <div class="col-s12">
+                <a id="addBtn" class="btn-floating btn-small waves-effect waves-light green"><i class="material-icons">add</i></a>
+            </div>
+            <div class="col-s12">
+                <button id="saveBtn" type="submit" class="waves-effect waves-light btn blue right">save</button>
+            </div>
+        </form>
+        <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script type="text/javascript" src="Model/AdminModel.js"></script>
+        <script type="text/javascript" src="View/AdminView.js"></script>
+        <script type="text/javascript" src="Controller/AdminController.js"></script>
+        <script type="text/javascript" src="js/Admin.js"></script>
+   </body>
+</html>
