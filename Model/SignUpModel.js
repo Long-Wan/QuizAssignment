@@ -1,5 +1,5 @@
 var SignUpModel = function() {
 };
 
-SignUModel.prototype = {
+SignUpModel.prototype = {
 };

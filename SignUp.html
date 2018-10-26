@@ -2,21 +2,33 @@
    <head>
         <title>Quiz - User</title>
         <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-        <link type="text/css" rel="stylesheet" href="css/Index.css" />
-        <link type="text/css" rel="stylesheet" href="css/User.css" />
+        <link type="text/css" rel="stylesheet" href="css/SignUp.css" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
    </head>
    <body>
         <nav>
             <div class="nav-wrapper light-blue">
-                <a href="index.html" class="brand-logo center">Quiz</a>
+                <a href="index.html" class="brand-logo center">Sign Up</a>
                 <ul id="nav-mobile" class="left">
                     <li><a href="Admin.html">Admin</a></li>
                     <li><a href="User.html">User</a></li>
                 </ul>
             </div>
         </nav>
+        <form id="signupForm" class="container row" onsubmit="return false">
+            <div class="formInputs">
+                <input id="email" type="email" class="validate">
+                <label for="email">Email</label>
+                <input id="username" type="text" class="validate">
+                <label for="username">Username</label>
+                <input id="password" type="password" class="validate">
+                <label for="password">Password</label>
+                <input id="cpassword" type="password" class="validate">
+                <label for="cpassword">Confirm Password</label>
+            </div>
+            <button id="submitBtn" class="btn waves-effect waves-light right blue" type="submit" name="action">Submit</button>
+        </form>
         <script src="https://sdk.amazonaws.com/js/aws-sdk-2.211.1.min.js"></script>
         <script src="js/amazon-cognito-identity.min.js"></script> 
         <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
