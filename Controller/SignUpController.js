@@ -5,5 +5,6 @@ var SignUpController = function(model, view) {
 
 SignUpController.prototype = {
     init: function() {
+        this.view.saveUser = this.model.saveUser.bind(this.model);
     }
 };

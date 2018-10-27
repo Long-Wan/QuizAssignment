@@ -1,0 +1,37 @@
+<html>
+   <head>
+        <title>Confirmation</title>
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="css/Confirm.css" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   </head>
+   <body>
+        <nav>
+            <div class="nav-wrapper light-blue">
+                <a href="index.html" class="brand-logo center">Confirmation</a>
+                <ul id="nav-mobile" class="left">
+                    <li><a href="Admin.html">Admin</a></li>
+                    <li><a href="User.html">User</a></li>
+                </ul>
+            </div>
+        </nav>
+        <form id="confirmForm" class="container row" onsubmit="return false">
+            <div class="formInputs col s10">
+                <input id="confirmCode" type="text" class="validate">
+                <label for="confirmCode">Confirmation Code</label>
+            </div>
+            <div class="col s2">
+                <button id="confirmBtn" class="btn waves-effect waves-light blue" type="submit" name="action">Confirm</button>
+            </div>
+        </form>
+        <script src="https://sdk.amazonaws.com/js/aws-sdk-2.211.1.min.js"></script>
+        <script src="js/amazon-cognito-identity.min.js"></script> 
+        <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script type="text/javascript" src="Model/ConfirmModel.js"></script>
+        <script type="text/javascript" src="View/ConfirmView.js"></script>
+        <script type="text/javascript" src="Controller/ConfirmController.js"></script>
+        <script type="text/javascript" src="js/Confirm.js"></script>
+   </body>
+</html>

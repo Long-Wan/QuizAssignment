@@ -19,17 +19,19 @@ SignUpView.prototype = {
             ClientId: '40q17ev07chan9i4u4eco0kl8l'
         });
         var attributes = [
-        new AmazonCognitoIdentity.CognitoUserAttribute({
-            Name : 'email',
-            Value : $('#email').val()
-        })];
+            new AmazonCognitoIdentity.CognitoUserAttribute({
+                Name : 'email',
+                Value : $('#email').val()
+            })
+        ];
 
         cup.signUp($('#username').val(), $('#password').val(), attributes, null, (err, data) => {
             if (err) {
                 M.toast({html: err, classes: 'red'});
             } else {
                 M.toast({html: 'Success', classes: 'green'});
-                // window.location.replace('../confirm.html');
+                this.saveUser($('#username').val());
+                window.location.replace('./Confirm.html');
             }
         });
     }
