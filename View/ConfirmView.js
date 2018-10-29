@@ -26,9 +26,11 @@ ConfirmView.prototype = {
         var cognitoUser = new AmazonCognitoIdentity.CognitoUser(userData);
         cognitoUser.confirmRegistration($('#confirmCode').val(), true, function(err, result) {
             if (err) {
-                M.toast({html: err, classes: 'red'});
+                M.toast({html: "An error occurred", classes: 'red'});
+                console.log(err);
             } else {
-                M.toast({html: 'Confirmed', classes: 'green'});
+                M.toast({html: 'Account Confirmed', classes: 'green'});
+                setInterval(()=>{window.location.replace('./Login.html');}, 2000);
             }
         });
     }

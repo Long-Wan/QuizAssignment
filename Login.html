@@ -1,43 +1,40 @@
 <html>
    <head>
-        <title>Sign up</title>
+        <title>Login</title>
         <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-        <link type="text/css" rel="stylesheet" href="css/SignUp.css" />
+        <link type="text/css" rel="stylesheet" href="css/Login.css" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
    </head>
    <body>
         <nav>
             <div class="nav-wrapper light-blue">
-                <a href="index.html" class="brand-logo center">Sign Up</a>
+                <a href="index.html" class="brand-logo center">Login</a>
                 <ul id="nav-mobile" class="left">
                     <li><a href="Admin.html">Admin</a></li>
                     <li><a href="User.html">User</a></li>
                 </ul>
             </div>
         </nav>
-        <form id="signupForm" class="container row" onsubmit="return false">
-            <div class="formInputs">
-                <input id="email" type="email" class="validate">
-                <label for="email">Email</label>
+        <form id="loginForm" class="container row" onsubmit="return false">
+            <div class="loginInputs">
                 <input id="username" type="text" class="validate">
                 <label for="username">Username</label>
                 <input id="password" type="password" class="validate">
                 <label for="password">Password</label>
-                <input id="cpassword" type="password" class="validate">
-                <label for="cpassword">Confirm Password</label>
             </div>
-            <div class="center">
-                <button id="submitBtn" class="btn waves-effect waves-light blue" type="submit" name="action">Submit</button>
+            <div>
+                <a href="SignUp.html">Sign up for an account</a>
+                <button id="loginBtn" class="btn waves-effect waves-light blue right" type="submit" name="action">Login</button>
             </div>
         </form>
         <script src="https://sdk.amazonaws.com/js/aws-sdk-2.211.1.min.js"></script>
         <script src="js/amazon-cognito-identity.min.js"></script> 
         <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
-        <script type="text/javascript" src="Model/SignUpModel.js"></script>
-        <script type="text/javascript" src="View/SignUpView.js"></script>
-        <script type="text/javascript" src="Controller/SignUpController.js"></script>
-        <script type="text/javascript" src="js/SignUp.js"></script>
+        <script type="text/javascript" src="Model/LoginModel.js"></script>
+        <script type="text/javascript" src="View/LoginView.js"></script>
+        <script type="text/javascript" src="Controller/LoginController.js"></script>
+        <script type="text/javascript" src="js/Login.js"></script>
    </body>
 </html>

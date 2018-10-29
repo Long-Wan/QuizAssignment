@@ -31,7 +31,7 @@ SignUpView.prototype = {
             } else {
                 M.toast({html: 'Success', classes: 'green'});
                 this.saveUser($('#username').val());
-                window.location.replace('./Confirm.html');
+                setInterval(()=>{window.location.replace('./Confirm.html');}, 2000);
             }
         });
     }
