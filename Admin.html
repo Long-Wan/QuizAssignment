@@ -8,15 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
    </head>
    <body>
-        <nav>
-            <div class="nav-wrapper light-blue">
-                <a href="index.html" class="brand-logo center">Quiz</a>
-                <ul id="nav-mobile" class="left">
-                    <li><a href="Admin.html">Admin</a></li>
-                    <li><a id="userPage" href="User.html">User</a></li>
-                </ul>
-            </div>
-        </nav>
+        <nav class="nav-container"></nav>
         <form id="quizForm" class="container row" onsubmit="return false">
             <div id="questionContainer" class="col s12"></div>
             <div class="col s12">
@@ -26,10 +18,14 @@
                 <button id="saveBtn" type="submit" class="waves-effect waves-light btn blue right">save</button>
             </div>
         </form>
+        <script src="https://sdk.amazonaws.com/js/aws-sdk-2.211.1.min.js"></script>
+        <script src="js/amazon-cognito-identity.min.js"></script> 
         <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
         <script type="text/javascript" src="Model/AdminModel.js"></script>
+        <script type="text/javascript" src="Model/AuthModel.js"></script>
         <script type="text/javascript" src="View/AdminView.js"></script>
+        <script type="text/javascript" src="View/AppBarView.js"></script>
         <script type="text/javascript" src="Controller/AdminController.js"></script>
         <script type="text/javascript" src="js/Admin.js"></script>
    </body>

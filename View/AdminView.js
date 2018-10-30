@@ -1,4 +1,5 @@
-var AdminView = function() {
+var AdminView = function(appBarView) {
+    this.appBarView = appBarView;
     this.init();
 };
 
@@ -6,15 +7,21 @@ AdminView.prototype = {
     init: function() {
         this.questionCount = 1;
         this.setElements();
+        this.loadAppBar();
         this.setListeners();
         this.setConfirmation();
     },
     setElements: function() {
+        this.appbar = $('.nav-container');
         this.form = $('#quizForm');
         this.questionContainer = $('#questionContainer');
         this.addBtn = $('#addBtn');
         this.modal = $('#saveModal');
         this.userLink = $('#userPage');
+    },
+    loadAppBar: function() {
+        this.appBarView.generateAppBar(this.appbar);
+        this.appBarView.setLogoutListener();
     },
     setListeners: function() {
         this.addBtn.click(this.newQuestion.bind(this));
