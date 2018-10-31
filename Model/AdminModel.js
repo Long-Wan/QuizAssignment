@@ -20,6 +20,7 @@ AdminModel.prototype = {
             error: null
         });
         this.questions = [];
+        
     },
     retrieveQuestions: function() {
         return $.ajax({
