@@ -1,7 +1,9 @@
 $(function () {
     var model = new UserModel(),
-        view = new UserView(),
-        controller = new UserController(model, view);
+        auth = new AuthModel(),
+        appbar = new AppBarView(auth),
+        view = new UserView(appbar),
+        controller = new UserController(model, view, auth);
         
     controller.init();
 });

@@ -1,4 +1,5 @@
-var UserView = function() {
+var UserView = function(appBarView) {
+    this.appBarView = appBarView;
     this.init();
 };
 
@@ -6,12 +7,18 @@ UserView.prototype = {
     init: function() {
         this.questionCount = 1;
         this.setElements();
+        this.loadAppBar();
         this.setListeners();
     },
     setElements: function() {
+        this.appbar = $('.nav-container');
         this.quizContainer = $('#quizContainer');
         this.submitBtn = $('#submitBtn');
         this.resetBtn = $('#resetBtn');
+    },
+    loadAppBar: function() {
+        this.appBarView.generateAppBar(this.appbar);
+        this.appBarView.setLogoutListener();
     },
     setListeners: function() {
         this.submitBtn.click(this.gradeQuiz.bind(this));

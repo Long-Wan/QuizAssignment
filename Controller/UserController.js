@@ -1,6 +1,7 @@
-var UserController = function(model, view) {
+var UserController = function(model, view, auth) {
     this.model = model;
     this.view = view;
+    this.auth = auth;
 };
 
 UserController.prototype = {
