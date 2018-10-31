@@ -7,21 +7,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
    </head>
    <body>
-        <nav>
-            <div class="nav-wrapper light-blue">
-                <a href="index.html" class="brand-logo center">Quiz</a>
-                <ul id="nav-mobile" class="left">
-                    <li><a href="Admin.html">Admin</a></li> 
-                    <li><a href="User.html">User</a></li>
-                </ul>
-            </div>
-        </nav>
+        <nav class="nav-container"></nav>
         <div class="intro center">
             <h4>Welcome to the Quiz Simulator</h4>
             <h5>First, navigate to the <a href="Admin.html">Admin</a> page to create a quiz.</h5>
             <h5>Then, navigate to the <a href="User.html">User</a> page to take the created quiz.</h5>
         </div>
+        <script src="https://sdk.amazonaws.com/js/aws-sdk-2.211.1.min.js"></script>
+        <script src="js/amazon-cognito-identity.min.js"></script> 
         <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script type="text/javascript" src="Model/AuthModel.js"></script>
+        <script type="text/javascript" src="View/AppBarView.js"></script>
+        <script type="text/javascript" src="View/AppView.js"></script>
+        <script type="text/javascript" src="Controller/AppController.js"></script>
+        <script type="text/javascript" src="js/App.js"></script>
    </body>
 </html>
