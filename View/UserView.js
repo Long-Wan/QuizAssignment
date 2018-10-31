@@ -5,7 +5,7 @@ var UserView = function(appBarView) {
 
 UserView.prototype = {
     init: function() {
-        this.questionCount = 1;
+        this.questionCount = 0;
         this.setElements();
         this.loadAppBar();
         this.setListeners();
@@ -55,12 +55,15 @@ UserView.prototype = {
         this.submitBtn.hide();
     },
     gradeQuiz: function() {
+        var correctCount = 0;
         this.quizContainer.children().each(function(i) {
             var correct = $(this).attr('value');
             $(this).find('.answer-choice').each(function(i) {
                 if ($(this).find('.answer-check').is(':checked')) {
                     if ($(this).find('.answer-text').html() != correct) {
                         $(this).find('.answer-text').addClass('red');
+                    } else {
+                        correctCount++;
                     }
                 }
                 if ($(this).find('.answer-text').html() == correct) {
@@ -70,8 +73,14 @@ UserView.prototype = {
         });
         this.submitBtn.addClass('disabled');
         $('.answer-check').attr('disabled', 'disabled');
+
+        let user = this.getCurUser();
+        if (user) {
+            this.submitRanking(user.username, correctCount, this.questionCount);
+        }
     },
     resetQuiz: function() {
+        this.questionCount = 0;
         this.submitBtn.removeClass('disabled');
         this.checkQuiz();
     }

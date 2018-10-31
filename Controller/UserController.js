@@ -6,7 +6,9 @@ var UserController = function(model, view, auth) {
 
 UserController.prototype = {
     init: function() {
+        this.view.getCurUser = this.auth.getCurUser.bind(this.auth);
         this.view.retrieveQuiz = this.model.retrieveQuiz.bind(this.model);
+        this.view.submitRanking = this.model.submitRanking.bind(this.model);
         this.view.checkQuiz();
     }
 };
