@@ -26,7 +26,7 @@ UserView.prototype = {
     },
     checkQuiz: function() {
         $.when(this.retrieveQuiz()).done((data) => {
-            if (data) {
+            if (data.length > 0) {
                 this.displayQuiz(data);
             } else {
                 this.noQuiz();
@@ -36,7 +36,12 @@ UserView.prototype = {
     displayQuiz: function(quiz) {
         var quizHtml = '';
         quiz.forEach(element => {
-            quizHtml += '<div class="quiz-question card" value="' + element.correctAnswer + '"><div class="card-content">';
+            
+            if (element.hardMode) {
+                quizHtml += '<div class="quiz-question card" value="' + element.correctAnswer + '"><span class="new badge purple" data-badge-caption="Hard"></span><div class="card-content">';
+            } else {
+                quizHtml += '<div class="quiz-question card" value="' + element.correctAnswer + '"><span class="new badge green" data-badge-caption="Easy"></span><div class="card-content">';
+            }
             quizHtml += '<span class="card-title question-text">' + element.question + '</span>';
             element.answers.forEach(answer => {
                 quizHtml += '<div class="answer-choice row">';

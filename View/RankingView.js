@@ -18,7 +18,7 @@ RankingView.prototype = {
     },
     loadRanking: function() {
         $.when(this.getRanking()).done((data) => {
-            if (data) {
+            if (data.length > 0) {
                 this.displayRanking(data);
             } else {
                 this.noRanking();
