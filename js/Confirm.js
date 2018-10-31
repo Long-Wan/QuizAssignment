@@ -1,7 +1,9 @@
 $(function () {
     var model = new ConfirmModel(),
-        view = new ConfirmView(),
-        controller = new ConfirmController(model, view);
+        auth = new AuthModel(),
+        appbar = new AppBarView(auth),
+        view = new ConfirmView(appbar),
+        controller = new ConfirmController(model, view, auth);
         
     controller.init();
 });
