@@ -16,6 +16,7 @@ AppBarView.prototype = {
             appbar += '</ul>';
             appbar += '<ul class="right">';
             if (user) {
+                appbar += '<li><div class="name-display">' + user.username + '</div></li>';
                 appbar += '<li><a id="logoutBtn" href="index.html">Logout</a></li>';
             } else {
                 appbar += '<li><a href="Login.html">Login</a></li>';
