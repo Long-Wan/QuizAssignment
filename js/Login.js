@@ -1,7 +1,9 @@
 $(function () {
     var model = new LoginModel(),
-        view = new LoginView(),
-        controller = new LoginController(model, view);
+        auth = new AuthModel(),
+        appbar = new AppBarView(auth),
+        view = new LoginView(appbar),
+        controller = new LoginController(model, view, auth);
         
     controller.init();
 });

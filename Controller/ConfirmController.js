@@ -7,6 +7,5 @@ var ConfirmController = function(model, view, auth) {
 ConfirmController.prototype = {
     init: function() {
         this.view.confirmUser = this.auth.confirmUser.bind(this.auth);
-        this.view.retrieveCurrentUser = this.model.retrieveCurrentUser.bind(this.model);
     }
 };

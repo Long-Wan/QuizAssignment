@@ -65,7 +65,7 @@ AuthModel.prototype = {
             Pool : userPool
         };
         var cognitoUser = new AmazonCognitoIdentity.CognitoUser(userData);
-        cognitoUser.confirmRegistration($('#confirmCode').val(), true, function(err, result) {
+        cognitoUser.confirmRegistration($('#confirmCode').val(), true, (err, result) => {
             if (err) {
                 M.toast({html: err.message, classes: 'red'});
                 console.log(err);
@@ -73,6 +73,39 @@ AuthModel.prototype = {
                 M.toast({html: 'Account Confirmed', classes: 'green'});
                 setInterval(()=>{window.location.replace('./Login.html');}, 2000);
             }
+        });
+    },
+    authenticate: function(username, password) {
+        var authenticationData = {
+            Username : username,
+            Password : password,
+        };
+        var authenticationDetails = new AmazonCognitoIdentity.AuthenticationDetails(authenticationData);
+        var poolData = {
+            UserPoolId : 'us-west-2_292Xullx0', // Your user pool id here
+            ClientId : '40q17ev07chan9i4u4eco0kl8l' // Your client id here
+        };
+        var userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
+        var userData = {
+            Username : username,
+            Pool : userPool
+        };
+        var cognitoUser = new AmazonCognitoIdentity.CognitoUser(userData);
+        cognitoUser.authenticateUser(authenticationDetails, {
+            onSuccess: (result) => {
+                this.saveUser(username);
+                window.location.replace('./User.html');
+            },
+    
+            onFailure: (err) => {
+                console.log(err);
+                M.toast({html: err.message, classes: 'red'});
+                if (err.code == "UserNotConfirmedException") {
+                    this.saveUser(username);
+                    setInterval(()=>{window.location.replace('./Confirm.html');}, 2000);
+                }
+            },
+    
         });
     }
 };

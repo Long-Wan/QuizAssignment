@@ -7,15 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
    </head>
    <body>
-        <nav>
-            <div class="nav-wrapper light-blue">
-                <a href="index.html" class="brand-logo center">Login</a>
-                <ul id="nav-mobile" class="left">
-                    <li><a href="Admin.html">Admin</a></li>
-                    <li><a href="User.html">User</a></li>
-                </ul>
-            </div>
-        </nav>
+        <nav class="nav-container"></nav>
         <form id="loginForm" class="container row" onsubmit="return false">
             <div class="loginInputs">
                 <input id="username" type="text" class="validate">
@@ -33,7 +25,9 @@
         <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
         <script type="text/javascript" src="Model/LoginModel.js"></script>
+        <script type="text/javascript" src="Model/AuthModel.js"></script>
         <script type="text/javascript" src="View/LoginView.js"></script>
+        <script type="text/javascript" src="View/AppBarView.js"></script>
         <script type="text/javascript" src="Controller/LoginController.js"></script>
         <script type="text/javascript" src="js/Login.js"></script>
    </body>
