@@ -6,3 +6,15 @@
 .no-ranking {
     margin-top: 20vh;
 }
+
+@media only screen and (max-width: 768px) {
+    #ranking-container {
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #ranking-container {
+        width: 80%;
+    }
+}

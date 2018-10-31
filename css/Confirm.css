@@ -6,3 +6,15 @@
 #confirmBtn {
     margin-top: 10px;
 }
+
+@media only screen and (max-width: 768px) {
+    #confirmForm {
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #confirmForm {
+        width: 80%;
+    }
+}
