@@ -1,10 +1,11 @@
-var SignUpController = function(model, view) {
+var SignUpController = function(model, view, auth) {
     this.model = model;
     this.view = view;
+    this.auth = auth;
 };
 
 SignUpController.prototype = {
     init: function() {
-        this.view.saveUser = this.model.saveUser.bind(this.model);
+        this.view.registerUser = this.auth.registerUser.bind(this.auth);
     }
 };

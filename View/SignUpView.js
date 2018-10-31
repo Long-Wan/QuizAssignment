@@ -1,38 +1,34 @@
-var SignUpView = function() {
+var SignUpView = function(appBarView) {
+    this.appBarView = appBarView;
     this.init();
 };
 
 SignUpView.prototype = {
     init: function() {
         this.setElements();
+        this.loadAppBar();
         this.setListeners();
     },
     setElements: function() {
+        this.appbar = $('.nav-container');
         this.form = $('#signupForm');
+        this.password = $('#password');
+        this.cpassword = $('#cpassword');
+    },
+    loadAppBar: function() {
+        this.appBarView.generateAppBar(this.appbar);
+        this.appBarView.setLogoutListener();
     },
     setListeners: function() {
-        this.form.submit(this.registerUser.bind(this));
+        this.form.submit(this.register.bind(this));
+        this.cpassword.change(this.validatePass.bind(this));
     },
-    registerUser: function() {
-        var cup = new AmazonCognitoIdentity.CognitoUserPool({
-            UserPoolId: 'us-west-2_292Xullx0',
-            ClientId: '40q17ev07chan9i4u4eco0kl8l'
-        });
-        var attributes = [
-            new AmazonCognitoIdentity.CognitoUserAttribute({
-                Name : 'email',
-                Value : $('#email').val()
-            })
-        ];
-
-        cup.signUp($('#username').val(), $('#password').val(), attributes, null, (err, data) => {
-            if (err) {
-                M.toast({html: err, classes: 'red'});
-            } else {
-                M.toast({html: 'Success', classes: 'green'});
-                this.saveUser($('#username').val());
-                setInterval(()=>{window.location.replace('./Confirm.html');}, 2000);
-            }
-        });
+    register: function() {
+        this.registerUser($('#username').val(), $('#password').val(), $('#email').val());
+    },
+    validatePass: function() {
+        if (this.password.val() != this.cpassword.val()) {
+            this.cpassword[0].setCustomValidity("Passwords do not match");
+        }
     }
 };
