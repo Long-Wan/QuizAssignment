@@ -26,6 +26,7 @@ RankingView.prototype = {
         });
     },
     displayRanking: function(data) {
+        var user = this.getCurUser();
         data.sort((a, b) => {
             return b.correct - a.correct;
         });
@@ -33,7 +34,7 @@ RankingView.prototype = {
         var rankingHtml = '<table><thead><tr><th>Username</th><th class="right">Score</th></tr></thead>';
         rankingHtml += '<tbody>';
         data.forEach((element) => {
-            if (this.getCurUser().username == element.username) {
+            if (user && user.username == element.username) {
                 rankingHtml += '<tr class="light-blue lighten-3"><td>' + element.username + '</td>';
                 rankingHtml += '<td class="right">' + element.correct + '/' + element.total + '</td></tr>';
             } else {
