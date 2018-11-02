@@ -61,18 +61,18 @@ UserView.prototype = {
     },
     gradeQuiz: function() {
         var correctCount = 0;
-        this.quizContainer.children().each(function(i) {
-            var correct = $(this).attr('value');
-            $(this).find('.answer-choice').each(function(i) {
-                if ($(this).find('.answer-check').is(':checked')) {
-                    if ($(this).find('.answer-text').html() != correct) {
-                        $(this).find('.answer-text').addClass('red');
+        this.quizContainer.children().each((i, question) => {
+            var correct = $(question).attr('value');
+            $(question).find('.answer-choice').each((i, choice) => {
+                if ($(choice).find('.answer-check').is(':checked')) {
+                    if ($(choice).find('.answer-text').html() != correct) {
+                        $(choice).find('.answer-text').addClass('red');
                     } else {
                         correctCount++;
                     }
                 }
-                if ($(this).find('.answer-text').html() == correct) {
-                    $(this).find('.answer-text').addClass('green');
+                if ($(choice).find('.answer-text').html() == correct) {
+                    $(choice).find('.answer-text').addClass('green');
                 }
             });
         });
