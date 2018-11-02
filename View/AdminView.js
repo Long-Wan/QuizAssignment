@@ -11,6 +11,14 @@ AdminView.prototype = {
         this.setListeners();
         this.setConfirmation();
     },
+    checkAuth: function() {
+        let user = this.getCurUser();
+        if (user && user.username != 'admin') {
+            let error = '<div style="font-size: 36; text-align: center">You do not have access to this page, redirecting to home page</div>';
+            this.form.html(error);
+            setInterval(()=>{window.location.replace('./index.html');}, 2000);
+        }
+    },
     setElements: function() {
         this.appbar = $('.nav-container');
         this.form = $('#quizForm');
