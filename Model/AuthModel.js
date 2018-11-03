@@ -5,7 +5,7 @@ AuthModel.prototype = {
     getCurUser: function() {                    //Gets currently signed in user
         var cup = new AmazonCognitoIdentity.CognitoUserPool({
             UserPoolId: 'us-west-2_292Xullx0',
-            ClientId: '40q17ev07chan9i4u4eco0kl8l'
+            ClientId: ''
         });
         var cognitoUser = cup.getCurrentUser();
         if (cognitoUser != null) {
@@ -29,7 +29,7 @@ AuthModel.prototype = {
     registerUser: function(username, password, email) {         //Registers a user
         var cup = new AmazonCognitoIdentity.CognitoUserPool({
             UserPoolId: 'us-west-2_292Xullx0',
-            ClientId: '40q17ev07chan9i4u4eco0kl8l'
+            ClientId: ''
         });
         var attributes = [
             new AmazonCognitoIdentity.CognitoUserAttribute({
@@ -57,7 +57,7 @@ AuthModel.prototype = {
     confirmUser: function() {                       //Confirms a user
         var poolData = {
             UserPoolId : 'us-west-2_292Xullx0',
-            ClientId : '40q17ev07chan9i4u4eco0kl8l'
+            ClientId : ''
         };
         var userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
         var userData = {
@@ -83,7 +83,7 @@ AuthModel.prototype = {
         var authenticationDetails = new AmazonCognitoIdentity.AuthenticationDetails(authenticationData);
         var poolData = {
             UserPoolId : 'us-west-2_292Xullx0', // Your user pool id here
-            ClientId : '40q17ev07chan9i4u4eco0kl8l' // Your client id here
+            ClientId : '' // Your client id here
         };
         var userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
         var userData = {

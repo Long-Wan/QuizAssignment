@@ -6,7 +6,7 @@ UserModel.prototype = {
         return $.ajax({
             url:'https://6c6pjnpmai.execute-api.us-west-2.amazonaws.com/Prod/quiz',
             headers: {
-                'x-api-key': '7Gotub6HrE2oN6YlpXuHaapLR10KHbDf790teKBT'
+                'x-api-key': ''
             },
             type: 'get',
             contentType: 'application/json',
@@ -21,7 +21,7 @@ UserModel.prototype = {
         $.ajax({
             url:'https://6c6pjnpmai.execute-api.us-west-2.amazonaws.com/Prod/ranking',
             headers: {
-                'x-api-key': '7Gotub6HrE2oN6YlpXuHaapLR10KHbDf790teKBT'
+                'x-api-key': ''
             },
             dataType: 'json',
             type: 'post',
