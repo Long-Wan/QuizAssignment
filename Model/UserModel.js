@@ -2,7 +2,7 @@ var UserModel = function() {
 };
 
 UserModel.prototype = {
-    retrieveQuiz: function() {
+    retrieveQuiz: function() {              //Gets quiz from db through api
         return $.ajax({
             url:'https://6c6pjnpmai.execute-api.us-west-2.amazonaws.com/Prod/quiz',
             headers: {
@@ -12,7 +12,7 @@ UserModel.prototype = {
             contentType: 'application/json',
         });
     },
-    submitRanking: function(username, correctCount, questionCount) {
+    submitRanking: function(username, correctCount, questionCount) {    //Submits ranking to db through api
         let json = {
             'username': username,
             'correct': correctCount,

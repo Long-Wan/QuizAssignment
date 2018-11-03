@@ -10,21 +10,21 @@ UserView.prototype = {
         this.loadAppBar();
         this.setListeners();
     },
-    setElements: function() {
+    setElements: function() {                   //Sets elements
         this.appbar = $('.nav-container');
         this.quizContainer = $('#quizContainer');
         this.submitBtn = $('#submitBtn');
         this.resetBtn = $('#resetBtn');
     },
-    loadAppBar: function() {
+    loadAppBar: function() {                    //Loads appbar and sets logout listener
         this.appBarView.generateAppBar(this.appbar);
         this.appBarView.setLogoutListener();
     },
-    setListeners: function() {
+    setListeners: function() {                  //Sets listeners
         this.submitBtn.click(this.gradeQuiz.bind(this));
         this.resetBtn.click(this.resetQuiz.bind(this));
     },
-    checkQuiz: function() {
+    checkQuiz: function() {                     //Checks if there is a quiz and display
         $.when(this.retrieveQuiz()).done((data) => {
             if (data.length > 0) {
                 this.displayQuiz(data);
@@ -33,7 +33,7 @@ UserView.prototype = {
             }
         });
     },
-    displayQuiz: function(quiz) {
+    displayQuiz: function(quiz) {               //Generates and displays quiz
         var quizHtml = '';
         quiz.forEach(element => {
             
@@ -54,12 +54,12 @@ UserView.prototype = {
         });
         this.quizContainer.html(quizHtml);
     },
-    noQuiz: function() {
+    noQuiz: function() {                        //Error message for no quiz
         let message = '<div class="no-quiz center"><h4>No quiz has been created, go to the <a href="Admin.html">Admin</a> page to create a quiz</h4></div>';
         this.quizContainer.html(message);
         this.submitBtn.hide();
     },
-    gradeQuiz: function() {
+    gradeQuiz: function() {                     //Grades the quiz and submits if user is logged in
         var correctCount = 0;
         this.quizContainer.children().each((i, question) => {
             var correct = $(question).attr('value');
@@ -84,7 +84,7 @@ UserView.prototype = {
             this.submitRanking(user.username, correctCount, this.questionCount);
         }
     },
-    resetQuiz: function() {
+    resetQuiz: function() {                 //Resets quiz
         this.questionCount = 0;
         this.submitBtn.removeClass('disabled');
         this.checkQuiz();

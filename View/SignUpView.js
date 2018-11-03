@@ -9,24 +9,24 @@ SignUpView.prototype = {
         this.loadAppBar();
         this.setListeners();
     },
-    setElements: function() {
+    setElements: function() {                   //Sets listeners
         this.appbar = $('.nav-container');
         this.form = $('#signupForm');
         this.password = $('#password');
         this.cpassword = $('#cpassword');
     },
-    loadAppBar: function() {
+    loadAppBar: function() {                    //Loads appbar and sets logout listener
         this.appBarView.generateAppBar(this.appbar);
         this.appBarView.setLogoutListener();
     },
-    setListeners: function() {
+    setListeners: function() {                  //Sets listeners
         this.form.submit(this.register.bind(this));
         this.cpassword.change(this.validatePass.bind(this));
     },
-    register: function() {
+    register: function() {                      //Registers a user
         this.registerUser($('#username').val(), $('#password').val(), $('#email').val());
     },
-    validatePass: function() {
+    validatePass: function() {                  //Validates if passwords match
         if (this.password.val() != this.cpassword.val()) {
             this.cpassword[0].setCustomValidity("Passwords do not match");
         }

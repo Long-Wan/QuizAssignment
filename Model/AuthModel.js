@@ -2,7 +2,7 @@ var AuthModel = function() {
 };
 
 AuthModel.prototype = {
-    getCurUser: function() {
+    getCurUser: function() {                    //Gets currently signed in user
         var cup = new AmazonCognitoIdentity.CognitoUserPool({
             UserPoolId: 'us-west-2_292Xullx0',
             ClientId: '40q17ev07chan9i4u4eco0kl8l'
@@ -20,13 +20,13 @@ AuthModel.prototype = {
             return null;
         }
     },
-    logout: function() {
+    logout: function() {                        //Logs out current user
         let user = this.getCurUser();
         if (user) {
             user.signOut();
         }
     },
-    registerUser: function(username, password, email) {
+    registerUser: function(username, password, email) {         //Registers a user
         var cup = new AmazonCognitoIdentity.CognitoUserPool({
             UserPoolId: 'us-west-2_292Xullx0',
             ClientId: '40q17ev07chan9i4u4eco0kl8l'
@@ -48,13 +48,13 @@ AuthModel.prototype = {
             }
         });
     },
-    saveUser: function(username) {
+    saveUser: function(username) {                  //Saves a username
         localStorage.setItem('username', username);
     },
-    getUsername: function() {
+    getUsername: function() {                       //Loads saved username
         return localStorage.getItem('username');
     },
-    confirmUser: function() {
+    confirmUser: function() {                       //Confirms a user
         var poolData = {
             UserPoolId : 'us-west-2_292Xullx0',
             ClientId : '40q17ev07chan9i4u4eco0kl8l'
@@ -75,7 +75,7 @@ AuthModel.prototype = {
             }
         });
     },
-    authenticate: function(username, password) {
+    authenticate: function(username, password) {    //Logs user in
         var authenticationData = {
             Username : username,
             Password : password,

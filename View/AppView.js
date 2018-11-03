@@ -8,10 +8,10 @@ AppView.prototype = {
         this.setElements();
         this.loadAppBar();
     },
-    setElements: function() {
+    setElements: function() {                       //Sets elements
         this.appbar = $('.nav-container');
     },
-    loadAppBar: function() {
+    loadAppBar: function() {                        //Loads appbar and sets logout listener
         this.appBarView.generateAppBar(this.appbar);
         this.appBarView.setLogoutListener();
     }

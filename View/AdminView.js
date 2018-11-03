@@ -11,7 +11,7 @@ AdminView.prototype = {
         this.setListeners();
         this.setConfirmation();
     },
-    checkAuth: function() {
+    checkAuth: function() {                     //Checks if user is admin
         let user = this.getCurUser();
         if (user && user.username != 'admin') {
             let error = '<div style="font-size: 36; text-align: center">You do not have access to this page, redirecting to home page</div>';
@@ -19,7 +19,7 @@ AdminView.prototype = {
             setInterval(()=>{window.location.replace('./index.html');}, 2000);
         }
     },
-    setElements: function() {
+    setElements: function() {                   //Sets elements to variables
         this.appbar = $('.nav-container');
         this.form = $('#quizForm');
         this.questionContainer = $('#questionContainer');
@@ -27,20 +27,20 @@ AdminView.prototype = {
         this.modal = $('#saveModal');
         this.userLink = $('#userPage');
     },
-    loadAppBar: function() {
+    loadAppBar: function() {                    //Loads the appbar and sets listener for logout
         this.appBarView.generateAppBar(this.appbar);
         this.appBarView.setLogoutListener();
     },
-    setListeners: function() {
+    setListeners: function() {                  //Sets listeners
         this.addBtn.click(this.newQuestion.bind(this));
         this.form.submit(this.saveQuestions.bind(this));
     },
-    setConfirmation: function() {
+    setConfirmation: function() {               //Confirmation before leaving page
         window.onbeforeunload = () => {
             return "If you leave this page, any unsaved changes will be abandoned";
         }
     },
-    checkQuestions: function() {
+    checkQuestions: function() {                //Check if there are questions saved
         $.when(this.retrieveQuestions()).done((data) => {
             if (data.length > 0) {
                 this.displayQuestions(data);
@@ -49,7 +49,7 @@ AdminView.prototype = {
             }
         });
     },
-    displayQuestions: function(questions) {
+    displayQuestions: function(questions) {     //Generate and displays questions in container
         questions.forEach(element => {
             let questionHtml = '<div class="question card"><div class="card-content">';
             questionHtml += '<div class="row">';
@@ -81,7 +81,7 @@ AdminView.prototype = {
             $('.removeBtn').click(this.removeQuestion.bind(this));
         });
     },
-    newQuestion: function() {
+    newQuestion: function() {                   //Creates new question element
         let questionHtml = '<div class="question card"><div class="card-content">';
         questionHtml += '<div class="row">';
         questionHtml += '<h5 class="col s6">Question</h5>';
@@ -102,10 +102,10 @@ AdminView.prototype = {
         this.questionCount++;
         $('.removeBtn').click(this.removeQuestion.bind(this));
     },
-    removeQuestion: function() {
+    removeQuestion: function() {                //Removes a question
         $(arguments[0].target).parent().parent().parent().parent().remove();
     },
-    saveQuestions: function() {
+    saveQuestions: function() {                 //Creates question object and saves
         var view = this;
         var count = 1;
         this.questionContainer.children().each((i, question) => {
@@ -126,7 +126,7 @@ AdminView.prototype = {
         this.storeQuestions();
         M.toast({html: 'Quiz saved, go to the User page to take it', classes: 'green'});
     },
-    clearForm: function() {
+    clearForm: function() {                     //Clears the questions
         this.questionContainer.empty();
         this.questionCount = 1;
         this.newQuestion();

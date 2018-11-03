@@ -3,10 +3,10 @@ var AdminModel = function() {
 };
 
 AdminModel.prototype = {
-    addQuestion: function(question) {
+    addQuestion: function(question) {           //Adds question to array
         this.questions.push(question);
     },
-    storeQuestions: function() {
+    storeQuestions: function() {                //Posts question array to api
         $.ajax({
             url:'https://6c6pjnpmai.execute-api.us-west-2.amazonaws.com/Prod/quiz',
             headers: {
@@ -22,7 +22,7 @@ AdminModel.prototype = {
         this.questions = [];
         
     },
-    retrieveQuestions: function() {
+    retrieveQuestions: function() {             //Gets questions from db through api
         return $.ajax({
             url:'https://6c6pjnpmai.execute-api.us-west-2.amazonaws.com/Prod/quiz',
             headers: {

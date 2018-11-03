@@ -3,7 +3,7 @@ var AppBarView = function(auth) {
 };
 
 AppBarView.prototype = {
-    generateAppBar: function(appbarContainer) {
+    generateAppBar: function(appbarContainer) {                 //Generates the appbar depending on user login
         $.when(this.auth.getCurUser()).done((user) => {
             var appbar = '<div class="nav-wrapper light-blue">';
             appbar += '<a href="index.html" class="brand-logo center">Quiz</a>';
@@ -26,10 +26,10 @@ AppBarView.prototype = {
             appbarContainer.html(appbar);
         });
     },
-    setLogoutListener: function() {
+    setLogoutListener: function() {                             //Sets listener for logout button
         $('#logoutBtn').click(this.logout.bind(this));
     },
-    logout: function() {
+    logout: function() {                                        //Logs out current user
         this.auth.logout();
     }
 }
